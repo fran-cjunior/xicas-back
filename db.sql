@@ -24,15 +24,9 @@ CREATE TABLE products (
 -- Create table for sales
 CREATE TABLE sales (
   id SERIAL PRIMARY KEY,
-  saler_id INTEGER NULL,
+  saler_id INTEGER REFERENCES admins(id),
   products JSONB NOT NULL DEFAULT '[]',
-  sale_date TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW(),
-  
-  -- chave estrangeira para tabela admin
-  CONSTRAINT fk_saler
-    FOREIGN KEY(saler_id)
-    REFERENCES admin(id)
-    ON DELETE SET NULL
+  sale_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- CREATE TABLE sales (
