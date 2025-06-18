@@ -19,8 +19,6 @@ Sale.init(
   }
 );
 
-
-
 // Sale.init(
 //   {
 //     id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
