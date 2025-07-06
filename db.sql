@@ -26,6 +26,8 @@ CREATE TABLE sales (
   id SERIAL PRIMARY KEY,
   saler_id INTEGER REFERENCES admins(id),
   products JSONB NOT NULL DEFAULT '[]',
+  payment_types JSONB NOT NULL DEFAULT '{"money": 0, "pix": 0, "debit": 0, "credit": 0, "other": 0}',
+  general_discount FLOAT NOT NULL DEFAULT 0,
   sale_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

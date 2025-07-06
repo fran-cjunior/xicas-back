@@ -3,7 +3,7 @@ import Product from "../models/product.js";
 
 export const createSale = async (req, res) => {
   try {
-    const {products} = req.body;
+    const {products, payment_types, general_discount} = req.body;
 
     if (!products || !Array.isArray(products)) {
       return res.status(400).json({ message: "Dados inválidos." });
@@ -11,6 +11,8 @@ export const createSale = async (req, res) => {
 
     const sale = await Sale.create({
       products,
+      payment_types,
+      general_discount
     });
 
     return res.status(201).json(sale);

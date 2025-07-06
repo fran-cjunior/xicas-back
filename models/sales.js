@@ -10,6 +10,8 @@ Sale.init(
     id: {type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true},
     saler_id: {type: DataTypes.INTEGER, allowNull: true, references: { model: Admin, key: "id" }},
     products: {type: DataTypes.JSONB, allowNull: false, defaultValue: []}, // Ex: [{ product_id: 1, qtd: 2, pUnit: 10, descount: 0 }]},
+    payment_types: {type: DataTypes.JSONB, allowNull: false, defaultValue: { money: 0, pix: 0, debit: 0, credit: 0, other: 0}},
+    general_discount: { type: DataTypes.FLOAT, allowNull: false, defaultValue: 0},
     sale_date: {type: DataTypes.DATE, defaultValue: DataTypes.NOW},
   },
   {
